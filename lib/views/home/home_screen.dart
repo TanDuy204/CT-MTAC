@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:partner/mock_data.dart';
+import 'package:partner/models/person_model.dart';
 
 import 'package:partner/views/home/widgets/schedule_widget.dart';
 import 'package:partner/views/home/widgets/menu_item_widget.dart';
 import 'package:partner/views/home/widgets/notes_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final List<PersonModel> personLists;
+  const HomeScreen({super.key, required this.personLists});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -26,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               'Xin chào bác tài',
               style: TextStyle(fontSize: 18, color: Colors.grey),
             ),
-            Text('Nguyen Tan Duy'),
+            Text(widget.personLists[0].name),
           ],
         ),
         actions: [
@@ -34,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: EdgeInsets.only(right: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: const Color.fromARGB(255, 152, 209, 236),
+              color: const Color(0xFF007AFF2).withOpacity(0.16),
             ),
             child: IconButton(
               onPressed: () {},
@@ -49,20 +51,20 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Container(
           color: Color(0xFFFEF7FF),
-          padding: EdgeInsets.only(right: 10, left: 16, top: 10),
+          padding: EdgeInsets.only(right: 10, left: 10, top: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
                   Text(
-                    "51C-7373",
-                    style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                    widget.personLists[0].licensePlate,
+                    style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold),
                   ),
                   Spacer(),
                   Text(
-                    "MSX:7362",
-                    style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                    widget.personLists[0].msx,
+                    style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -73,12 +75,14 @@ class _HomeScreenState extends State<HomeScreen> {
               MenuItemWidget(),
 
               SizedBox(height: 10),
-              //Lịch gom nổi bật
+
+              ///Lịch gom nổi bật
               Text("Lịch gom nổi bật", style: TextStyle(fontSize: 20)),
               SizedBox(height: 10),
               ScheduleWidget(),
               SizedBox(height: 10),
-              //Ghi chú quang trong
+
+              ///Ghi chú quang trong
               Text("Ghi chú quan trọng", style: TextStyle(fontSize: 20)),
               Text("Đừng quên mình có ghi chú quan trọng nhé bác tài",
                   style: TextStyle(fontSize: 16, color: Colors.grey)),

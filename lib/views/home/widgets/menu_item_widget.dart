@@ -30,7 +30,7 @@ class MenuItemWidget extends StatelessWidget {
             Color(0xFFB1DE52).withOpacity(0.35),
             Icons.bar_chart,
             "Thống kê",
-            "Thống kê các chỉ số hoạt động cảu bác tài",
+            "Thống kê các chỉ số hoạt động của bác tài",
             () {}),
         _buildMenuItem(
             context,
@@ -71,15 +71,19 @@ Widget _buildMenuItem(BuildContext context, Color color1, Color color2,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, size: 37, color: Colors.black),
+            Icon(icon, size: MediaQuery.of(context).size.width < 400 ? 33 : 37, color: Colors.black),
             SizedBox(height: 10),
             Text(title,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width < 360 
+        ? 17 
+        : (MediaQuery.of(context).size.width < 400 ? 17 : 22),
+                    fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
             Text(
               subTitle,
               style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width < 400 ? 13 : 17,
+                fontSize: MediaQuery.of(context).size.width < 400 ? 14 : 17,
               ),
             ),
           ],

@@ -7,7 +7,7 @@ class HeaderSection extends StatelessWidget {
   final String location;
   final String sender;
 
-  const HeaderSection({
+  const HeaderSection({super.key, 
     required this.receiptId,
     required this.formattedTime,
     required this.formattedDay,

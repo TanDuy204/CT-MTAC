@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:partner/mock_data.dart';
+
 import 'package:partner/views/calendar/calendar_screen.dart';
 import 'package:partner/views/home/home_screen.dart';
 import 'package:partner/views/notifications/notification_screen.dart';
@@ -16,7 +18,7 @@ class _BottomNavigationBarsState extends State<BottomNavigationBars> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const HomeScreen(),
+    HomeScreen(personLists: personList,),
     const CalendarScreen(),
     const TimeScreen(),
     const NotificationScreen(),

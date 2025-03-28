@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:partner/bottom_navigation_bar.dart';
-import 'package:partner/delivery/delivery_receipt_screen.dart';
 import 'package:partner/map/map_screen.dart';
 import 'package:partner/mock_data.dart';
 import 'package:partner/views/home/collection_schedule_screen.dart';
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: MapScreen(destinations: mockDestinations,),
+        home: BottomNavigationBars(),
       ),
     );
   }

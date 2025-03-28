@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partner/controllers/map_controller.dart';
 import 'package:partner/delivery/delivery_receipt_screen.dart';
-import 'package:partner/mock_data.dart';
 import 'package:partner/models/delivery_receipt_model.dart';
 import 'package:partner/models/destination_model.dart';
 

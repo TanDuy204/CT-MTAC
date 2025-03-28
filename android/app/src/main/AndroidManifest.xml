@@ -21,7 +21,7 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
-            android:screenOrientation="portrait">
+            >
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme"/>
@@ -38,20 +38,12 @@
             android:value="AIzaSyBqqMyS5PWP_x6sRKp7hxcIqMA_7p4GI3k"/>
     </application>
 
-    <!-- Required to query activities -->
+   
     <queries>
         <intent>
-            <action android:name="android.intent.action.PROCESS_TEXT"/>
-            <data android:mimeType="text/plain"/>
-        </intent>
-        <!-- Thêm vào để mở trình gọi điện -->
-        <intent>
-            <action android:name="android.intent.action.DIAL"/>
-            <data android:scheme="tel"/>
-        </intent>
-        <intent>
-            <action android:name="android.intent.action.CALL"/>
-            <data android:scheme="tel"/>
-        </intent>
-    </queries>
+         <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="tel" />
+  </intent>
+  
+</queries>
 </manifest>
