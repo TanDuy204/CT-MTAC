@@ -126,4 +126,34 @@ class MapsController extends GetxController {
       destination.address.value = "Không tìm thấy địa chỉ";
     }
   }
+
+  Future<List<List<double>>> getDistanceMatrix(List<LatLng> points) async {
+    String urlString = 'https://router.project-osrm.org/table/v1/driving/';
+
+    String coordinates =
+        points.map((e) => '${e.longitude},${e.latitude}').join(';');
+
+   
+    urlString += coordinates + '?annotations=duration,distance';
+
+    final url = Uri.parse(urlString);
+
+    try {
+      
+      final response = await http.get(url);
+      if (response.statusCode == 200) {
+        
+        final data = jsonDecode(response.body);
+        List<dynamic> durations = data['durations'];
+
+        return durations
+            .map((row) => List<double>.from(row.map((e) => e.toDouble())))
+            .toList();
+      }
+    } catch (e) {
+      print("Lỗi tải ma trận khoảng cách: $e");
+    }
+    return [];
+  }
+
 }

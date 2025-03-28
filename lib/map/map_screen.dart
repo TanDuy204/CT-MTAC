@@ -45,9 +45,10 @@ class _MapScreenState extends State<MapScreen> {
               ),
               children: [
                 TileLayer(
-                  urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  urlTemplate: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                   subdomains: ['a', 'b', 'c'],
                   userAgentPackageName: 'com.example.app',
+                  retinaMode: true,
                 ),
                 MarkerLayer(
                   markers: [
