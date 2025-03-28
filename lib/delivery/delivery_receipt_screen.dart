@@ -24,6 +24,7 @@ class _DeliveryReceiptScreenState extends State<DeliveryReceiptScreen> {
   @override
   void initState() {
     super.initState();
+
     deliveryReceiptController = Get.put(DeliveryReceiptController());
   }
 

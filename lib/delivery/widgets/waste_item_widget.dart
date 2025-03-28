@@ -17,22 +17,7 @@ class WasteItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      /// Kiểm tra dữ liệu
-      if (controller.deliveryReceipts.isEmpty) {
-        return const Center(
-            child: Text("Chưa có dữ liệu")); // hoặc CircularProgressIndicator()
-      }
-
-      if (receiptIndex >= controller.deliveryReceipts.length) {
-        return const Center(child: Text("Dữ liệu không hợp lệ"));
-      }
-
       final wasteItems = controller.deliveryReceipts[receiptIndex].wasteItems;
-
-      if (wasteItems.isEmpty) {
-        return const Center(child: Text("Không có chất thải nào"));
-      }
-
       return Column(
         children: List.generate(wasteItems.length, (wasteIndex) {
           final wasteItem = wasteItems[wasteIndex];

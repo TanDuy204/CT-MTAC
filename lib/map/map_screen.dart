@@ -21,6 +21,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
+    mapState.updateAddress(widget.destinations.first);
     mapController = MapController();
   }
 
