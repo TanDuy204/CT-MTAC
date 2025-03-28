@@ -19,7 +19,8 @@ class WasteItemList extends StatelessWidget {
     return Obx(() {
       /// Kiểm tra dữ liệu
       if (controller.deliveryReceipts.isEmpty) {
-        return const Center(child: Text("Chưa có dữ liệu")); // hoặc CircularProgressIndicator()
+        return const Center(
+            child: Text("Chưa có dữ liệu")); // hoặc CircularProgressIndicator()
       }
 
       if (receiptIndex >= controller.deliveryReceipts.length) {
@@ -45,19 +46,18 @@ class WasteItemList extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                /// Tên
                 Expanded(
                   flex: 3,
-                  child: Text(wasteItem.name, style: const TextStyle(color: Colors.grey)),
+                  child: Text(wasteItem.name,
+                      style: const TextStyle(color: Colors.grey)),
                 ),
 
-                /// Mã
                 Expanded(
                   flex: 2,
-                  child: Text(wasteItem.code, style: const TextStyle(color: Colors.grey)),
+                  child: Text(wasteItem.code,
+                      style: const TextStyle(color: Colors.grey)),
                 ),
 
-                /// Dropdown Status
                 Expanded(
                   flex: 2,
                   child: Container(
@@ -66,7 +66,10 @@ class WasteItemList extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: const [
-                        BoxShadow(blurRadius: 2, spreadRadius: 0, offset: Offset(0, 1)),
+                        BoxShadow(
+                            blurRadius: 2,
+                            spreadRadius: 0,
+                            offset: Offset(0, 1)),
                       ],
                       color: Colors.white,
                     ),
@@ -77,12 +80,15 @@ class WasteItemList extends StatelessWidget {
                         items: ["R", "L", "B"]
                             .map((status) => DropdownMenuItem(
                                   value: status,
-                                  child: Text(status, style: const TextStyle(color: Colors.green)),
+                                  child: Text(status,
+                                      style:
+                                          const TextStyle(color: Colors.green)),
                                 ))
                             .toList(),
                         onChanged: (value) {
                           if (value != null) {
-                            controller.updateWasteStatus(receiptIndex, wasteIndex, value);
+                            controller.updateWasteStatus(
+                                receiptIndex, wasteIndex, value);
                           }
                         },
                       ),

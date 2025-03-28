@@ -116,7 +116,7 @@ import 'package:get/get.dart';
       Placemark place = placemarks.first;
       String newAddress = "${place.street}, ${place.locality}, ${place.country}";
       
-      destination.address.value = newAddress; // Cập nhật address bằng RxString
+      destination.address.value = newAddress;
     }
   } catch (e) {
     destination.address.value = "Không tìm thấy địa chỉ";
