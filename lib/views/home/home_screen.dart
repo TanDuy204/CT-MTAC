@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:partner/mock_data.dart';
+
 import 'package:partner/models/person_model.dart';
 
 import 'package:partner/views/home/widgets/schedule_widget.dart';
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text("Đừng quên mình có ghi chú quan trọng nhé bác tài",
                   style: TextStyle(fontSize: 16, color: Colors.grey)),
               SizedBox(height: 10),
-              NotesWidget(taskList: taskList),
+              NotesWidget(),
             ],
           ),
         ),

@@ -22,7 +22,7 @@ class MenuItemWidget extends StatelessWidget {
             Icons.calendar_today,
             "Lịch thu gom",
             "Tổng hợp các lịch thu gom của bác tài", () {
-          Get.toNamed('/schedule', arguments: taskList);
+          Get.toNamed('/schedule', arguments: taskList,);
         }),
         _buildMenuItem(
             context,
@@ -75,9 +75,7 @@ Widget _buildMenuItem(BuildContext context, Color color1, Color color2,
             SizedBox(height: 10),
             Text(title,
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width < 360 
-        ? 17 
-        : (MediaQuery.of(context).size.width < 400 ? 17 : 22),
+                    fontSize: (MediaQuery.of(context).size.width < 400 ? 17 : 22),
                     fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
             Text(

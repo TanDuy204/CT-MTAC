@@ -5,12 +5,20 @@ import 'package:partner/models/task_model.dart';
 
 class HomeController extends GetxController {
   var tasks = <Task>[].obs;
+  var startDate = (DateTime.now().subtract(Duration(days: 2))).obs;
+  var selectedDate = DateTime.now().obs;
+
+  void updateDate(DateTime newDate) {
+    selectedDate.value = newDate;
+    startDate.value = newDate.subtract(Duration(days: 2));
+
+    filterTasksbyDate(newDate);
+  }
 
   void filterTasksbyDate(DateTime selectDate) {
     var formattedDay = DateFormat("yyyy/MM/dd").format(selectDate);
-
-    tasks.value = taskList.where((e) {
-      return DateFormat('yyyy/MM/dd').format(e.datetime) == formattedDay;
+    tasks.value = taskList.where((task) {
+      return DateFormat('yyyy/MM/dd').format(task.datetime) == formattedDay;
     }).toList();
   }
 
@@ -19,7 +27,10 @@ class HomeController extends GetxController {
       newIndex -= 1;
     }
 
-    if (oldIndex >= 0 && newIndex >= 0 && oldIndex < tasks.length && newIndex < tasks.length) {
+    if (oldIndex >= 0 &&
+        newIndex >= 0 &&
+        oldIndex < tasks.length &&
+        newIndex < tasks.length) {
       final Task temp = tasks[oldIndex];
       tasks.removeAt(oldIndex);
       tasks.insert(newIndex, temp);

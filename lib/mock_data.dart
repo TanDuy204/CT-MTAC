@@ -62,8 +62,8 @@ List<DestinationModel> mockDestinations = [
     contactName: "Chị Giao",
     contactPhone: "0123456789",
     address: "123 Đường ABC, Quận 1, TP.HCM",
-    latitude: 10.7769,
-    longitude: 106.7009,
+    latitude: 16.4667,
+    longitude: 107.5944,
   ),
   DestinationModel(
     companyName: "Công Ty TNHH ABC",
@@ -74,8 +74,8 @@ List<DestinationModel> mockDestinations = [
     contactName: "Anh Huy",
     contactPhone: "0987654321",
     address: "456 Đường XYZ, Quận 1, TP.HCM",
-    latitude: 10.7775,
-    longitude: 106.7015,
+    latitude: 16.4638,
+    longitude: 107.5899,
   ),
 ];
 
